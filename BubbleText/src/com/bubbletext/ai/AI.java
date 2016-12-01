@@ -33,9 +33,10 @@ public class AI {
         switch (response.getResult().getAction()){
             case "search_wikipedia":
                 System.out.println("g pa cherché mdr");
+                SearchWiki.getWikiHead(response.getResult().getStringParameter("content"));
                 break;
             case "send_mail":
-                System.out.println("g pas envoyé xd");
+                System.out.println("Je ne peux pas faire ça");
                 break;
             default:
                 break;
