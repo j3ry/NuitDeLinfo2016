@@ -39,7 +39,7 @@ public class AI {
                 result += "Je ne peux pas faire ça";
                 break;
             case "time_in":
-                result += TimeAction.timeInCity(response.getResult().getStringParameter("geo_city"));
+                result += TimeAction.timeInCity(response.getResult().getStringParameter("geo-city"));
                 break;
             case "current_time":
                 result += TimeAction.currentTime();
