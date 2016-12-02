@@ -23,7 +23,7 @@ public class Main {
             msg = sc.nextLine();
             try {
                 if(!msg.isEmpty())
-                    ai.sendMessage(msg);
+                    System.out.print(ai.sendMessage(msg));
             } catch (AIServiceException e) {
                 e.printStackTrace();
             }
