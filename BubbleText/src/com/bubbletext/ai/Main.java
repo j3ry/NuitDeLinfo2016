@@ -1,14 +1,7 @@
 package com.bubbletext.ai;
 
-import ai.api.AIConfiguration;
-import ai.api.AIDataService;
 import ai.api.AIServiceException;
-import ai.api.model.AIRequest;
-import ai.api.model.AIResponse;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**

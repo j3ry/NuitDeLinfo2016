@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
  * Created by charles on 12/1/16.
  */
 public class SearchWiki {
-    public static void getWikiHead(String subject){
+    public static String getWikiHead(String subject){
         String rawUrl = "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="+subject;
 
         JSONObject jsonObject = null;
@@ -25,11 +25,10 @@ public class SearchWiki {
         JSONObject jsonObject1 = query.getJSONObject("pages");
         JSONObject jsonObject2 = jsonObject1.getJSONObject(jsonObject1.keySet().toArray()[0].toString());
         if(jsonObject2.keySet().contains("missing"))
-            return;
+            return null;
 
         String extract = jsonObject2.getString("extract");
-        System.out.println(extract);
-
+        return extract;
     }
 
     private static String readAll(Reader rd) throws IOException {
