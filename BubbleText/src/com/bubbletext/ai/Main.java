@@ -29,7 +29,8 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             msg = sc.nextLine();
             try {
-                ai.sendMessage(msg);
+                if(!msg.isEmpty())
+                    ai.sendMessage(msg);
             } catch (AIServiceException e) {
                 e.printStackTrace();
             }

@@ -25,22 +25,35 @@ public class AI {
         AIResponse response = this.dataService.request(new AIRequest(msg));
 
         if (response.getStatus().getCode() == 200) {
-            System.out.println(response.getResult().getFulfillment().getSpeech());
+            System.out.print(response.getResult().getFulfillment().getSpeech());
         } else {
             System.err.println(response.getStatus().getErrorDetails());
         }
 
         switch (response.getResult().getAction()){
             case "search_wikipedia":
-                System.out.println("g pa cherché mdr");
                 SearchWiki.getWikiHead(response.getResult().getStringParameter("content"));
                 break;
             case "send_mail":
-                System.out.println("Je ne peux pas faire ça");
+                System.out.print("Je ne peux pas faire ça");
+                break;
+            case "time_in":
+                TimeAction.timeInCity(response.getResult().getStringParameter("geo_city"));
+                break;
+            case "current_time":
+                System.out.print(TimeAction.currentTime());
+                break;
+            case "current_date":
+                System.out.print(TimeAction.currentDate());
+                break;
+            case "access_website":
+                if(!response.getResult().getParameters().isEmpty())
+                    OpenUrlAction.openUrl(response.getResult().getStringParameter("url"));
                 break;
             default:
                 break;
         }
+        System.out.println();
         return response;
     }
 }
