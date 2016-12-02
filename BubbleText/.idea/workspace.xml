@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d15035f-a74d-419f-a95e-599873e25186" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_json_json_20160810.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BubbleText.iml" afterPath="$PROJECT_DIR$/BubbleText.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bubbletext/ai/AI.java" afterPath="$PROJECT_DIR$/src/com/bubbletext/ai/AI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/bubbletext/ai/SearchWiki.java" afterPath="$PROJECT_DIR$/src/com/bubbletext/ai/SearchWiki.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jsoup_1_10_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jsoup-1.10.1.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,8 +48,8 @@
       <file leaf-file-name="SearchWiki.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/bubbletext/ai/SearchWiki.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="13" column="51" lean-forward="true" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,6 +144,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ai" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BubbleText" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BubbleText" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,7 +627,7 @@
       <workItem from="1480621444314" duration="200000" />
       <workItem from="1480622884971" duration="2672000" />
       <workItem from="1480643225595" duration="4195000" />
-      <workItem from="1480650973716" duration="184000" />
+      <workItem from="1480650973716" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="ai.api added">
       <created>1480619792708</created>
@@ -631,11 +643,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480620348769</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="SearchWiki done">
+      <created>1480651208547</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480651208547</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8727000" />
+    <option name="totallyTimeSpent" value="8856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="769" extended-state="6" />
@@ -680,7 +699,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ai.api added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ai.api added" />
+    <MESSAGE value="SearchWiki done" />
+    <option name="LAST_COMMIT_MESSAGE" value="SearchWiki done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -776,8 +796,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bubbletext/ai/SearchWiki.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="13" column="51" lean-forward="true" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
