@@ -13,16 +13,16 @@ import java.util.Set;
  * Created by charles on 12/1/16.
  */
 public class TimeAction {
-    public static String timeInCity(String city){
+    public static String timeInCity(String location) {
 
         Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
         ArrayList<String> zoneList = new ArrayList<>(availableZoneIds);
 
-        city = city.trim().replaceAll(" +", "_");
+        String locationFormatted = location.trim().replaceAll(" +", "_");
 
         String zone = "";
         for (String z : zoneList) {
-            if (z.contains(city))
+            if (z.contains(locationFormatted))
                 zone = z;
         }
 
@@ -34,7 +34,11 @@ public class TimeAction {
 
         ZonedDateTime zonedDateTime = now.atZone(zoneId);
 
-        return String.valueOf(zonedDateTime.getHour()) + ":" + String.valueOf(zonedDateTime.getMinute());
+        String response = "Il est actuellement "
+                + String.format("%02d:%02d", zonedDateTime.getHour(), zonedDateTime.getMinute())
+                + " à " + location + ".";
+
+        return response;
     }
 
     public static String currentTime(){
