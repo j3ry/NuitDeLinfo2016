@@ -11,8 +11,10 @@
     <p>_________________________________________________________________</p>
   </form>
   <div id="pub">
-    <a href="http://www.msf.fr"><img src="MSFPUB.jpg" alt="pub"></a>
-    <img id="button" src="button.png" alt="" onclick="removeAds()">
+    <a href="http://www.msf.fr"><img src="./images/MSFPUB.jpg" alt="pub"></a>
+    <button onclick="removeAds()" class="button">
+      <img src="./images/button.png" alt="" class="button">
+    </button>    
   </div>
 </div>
 </div>

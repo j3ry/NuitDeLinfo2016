@@ -4,17 +4,41 @@
       color: #818181;
   }
 #fond {
-    background-image: url(1.jpg);
+    background-image: url(./images/1.jpg);
   }
 
-#fond img {
+#pub img, #pub button{
   position: fixed;
   right: 20px;
   top: 20%;
   border: white solid 2px;
   border-radius: 8px;
 }
-#button {
+
+#autoGenerateAd {
+  position: fixed;
+  bottom: 0;
+  left: 20%;
+  height: 10%;
+  width: 60%;
+}
+
+#autoGenerateAd img, #autoGenerateAd button {
+  border: white solid 2px;
+  border-radius: 8px;
+}
+
+#autoGenerateAd > img {
+  z-index: 3;
+  position: fixed;
+  float: right;
+  left:20%;
+}
+
+/*#autoGenerateAd*/
+
+
+.button {
   width: 20px;
   height: 20px;
 }
