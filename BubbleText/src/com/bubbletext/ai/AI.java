@@ -25,7 +25,7 @@ public class AI {
         AIResponse response = this.dataService.request(new AIRequest(msg));
 
         if (response.getStatus().getCode() == 200) {
-            System.out.print(response.getResult().getFulfillment().getSpeech());
+            System.out.print(response.getResult().getFulfillment().getSpeech() + " ");
         } else {
             System.err.println(response.getStatus().getErrorDetails());
         }
