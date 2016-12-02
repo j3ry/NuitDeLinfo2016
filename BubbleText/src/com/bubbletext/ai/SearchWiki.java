@@ -5,14 +5,13 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
 /**
  * Created by charles on 12/1/16.
  */
 public class SearchWiki {
-    public static void getWikiHead(String subject){
+    public static String getWikiHead(String subject){
         String subjectEncoded = "";
         try {
             subjectEncoded = URLEncoder.encode(subject, "UTF-8");
@@ -33,15 +32,14 @@ public class SearchWiki {
         JSONObject jsonObject1 = query.getJSONObject("pages");
         JSONObject jsonObject2 = jsonObject1.getJSONObject(jsonObject1.keySet().toArray()[0].toString());
         if(jsonObject2.keySet().contains("missing"))
-            return;
+            return "";
 
         String extract = jsonObject2.getString("extract");
         if(extract.isEmpty()) {
             extract = " go to \"https://fr.wikipedia.org/wiki/" + subject+"\"";
         }
 
-        System.out.println(extract);
-
+        return extract;
     }
 
     private static String readAll(Reader rd) throws IOException {

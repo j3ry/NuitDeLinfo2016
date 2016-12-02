@@ -21,30 +21,31 @@ public class AI {
         this.dataService = new AIDataService(this.conf);
     }
 
-    public AIResponse sendMessage(String msg) throws AIServiceException {
+    public String sendMessage(String msg) throws AIServiceException {
+        String result = "";
         AIResponse response = this.dataService.request(new AIRequest(msg));
 
         if (response.getStatus().getCode() == 200) {
-            System.out.print(response.getResult().getFulfillment().getSpeech() + " ");
+            result += response.getResult().getFulfillment().getSpeech() + " ";
         } else {
-            System.err.println(response.getStatus().getErrorDetails());
+            result += response.getStatus().getErrorDetails();
         }
 
         switch (response.getResult().getAction()){
             case "search_wikipedia":
-                SearchWiki.getWikiHead(response.getResult().getStringParameter("content"));
+                result += SearchWiki.getWikiHead(response.getResult().getStringParameter("content"));
                 break;
             case "send_mail":
-                System.out.print("Je ne peux pas faire ça");
+                result += "Je ne peux pas faire ça";
                 break;
             case "time_in":
-                TimeAction.timeInCity(response.getResult().getStringParameter("geo_city"));
+                result += TimeAction.timeInCity(response.getResult().getStringParameter("geo_city"));
                 break;
             case "current_time":
-                System.out.print(TimeAction.currentTime());
+                result += TimeAction.currentTime();
                 break;
             case "current_date":
-                System.out.print(TimeAction.currentDate());
+                result += TimeAction.currentDate();
                 break;
             case "access_website":
                 if(!response.getResult().getParameters().isEmpty())
@@ -53,7 +54,7 @@ public class AI {
             default:
                 break;
         }
-        System.out.println();
-        return response;
+        result += "\n";
+        return result;
     }
 }
