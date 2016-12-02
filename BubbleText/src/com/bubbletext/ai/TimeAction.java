@@ -13,7 +13,7 @@ import java.util.Set;
  * Created by charles on 12/1/16.
  */
 public class TimeAction {
-    public static String timeInCity(String location) {
+    public static String timeInLocation(String location) {
 
         Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
         ArrayList<String> zoneList = new ArrayList<>(availableZoneIds);
@@ -27,18 +27,14 @@ public class TimeAction {
         }
 
         if (zone.isEmpty())
-            return "Cette ville n'existe pas !";
+            return null;
 
         Instant now = Instant.now();
         ZoneId zoneId = ZoneId.of(zone);
 
         ZonedDateTime zonedDateTime = now.atZone(zoneId);
 
-        String response = "Il est actuellement "
-                + String.format("%02d:%02d", zonedDateTime.getHour(), zonedDateTime.getMinute())
-                + " à " + location + ".";
-
-        return response;
+        return String.format("%02d:%02d", zonedDateTime.getHour(), zonedDateTime.getMinute());
     }
 
     public static String currentTime(){

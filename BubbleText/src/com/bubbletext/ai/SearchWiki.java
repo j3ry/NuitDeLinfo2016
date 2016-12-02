@@ -30,14 +30,14 @@ public class SearchWiki {
         }
 
         JSONObject query = jsonObject.getJSONObject("query");
-        JSONObject jsonObject1 = query.getJSONObject("pages");
-        JSONObject jsonObject2 = jsonObject1.getJSONObject(jsonObject1.keySet().toArray()[0].toString());
+        JSONObject pages = query.getJSONObject("pages");
+        JSONObject jsonObject2 = pages.getJSONObject(pages.keySet().toArray()[0].toString());
         if(jsonObject2.keySet().contains("missing"))
-            return "";
+            return null;
 
         String extract = jsonObject2.getString("extract");
         if(extract.isEmpty()) {
-            extract = " go to \"https://fr.wikipedia.org/wiki/" + subject+"\"";
+            extract = "Je vous conseille cette page : https://fr.wikipedia.org/wiki/" + subject.trim().replaceAll(" ", "%20") + ".";
         }
 
         return extract;

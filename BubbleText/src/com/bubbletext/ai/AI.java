@@ -22,7 +22,7 @@ public class AI {
     }
 
     public String sendMessage(String msg) throws AIServiceException {
-        String result = "BubbleText >\t";
+        String result = "";
         AIResponse response = this.dataService.request(new AIRequest(msg));
 
         if (response.getStatus().getCode() == 200) {
@@ -33,19 +33,29 @@ public class AI {
 
         switch (response.getResult().getAction()){
             case "search_wikipedia":
-                result += SearchWiki.getWikiHead(response.getResult().getStringParameter("content"));
+                String wikiHead;
+                if ((wikiHead = SearchWiki.getWikiHead(response.getResult().getStringParameter("content"))) == null) {
+                    result = "Je n'ai rien trouvé sur le sujet sur Wikipedia.";
+                } else {
+                    result = wikiHead;
+                }
                 break;
             case "send_mail":
-                result += "Je ne peux pas faire ça";
+                //TODO
                 break;
             case "time_in":
-                result += TimeAction.timeInCity(response.getResult().getStringParameter("geo-city"));
+                String time;
+                if ((time = TimeAction.timeInLocation(response.getResult().getStringParameter("geo-city"))) == null) {
+                    result = "Je n'ai pas pu localisé cet endroit, désolé ...";
+                } else {
+                    result += time;
+                }
                 break;
             case "current_time":
-                result += TimeAction.currentTime();
+                result += TimeAction.currentTime() + ".";
                 break;
             case "current_date":
-                result += TimeAction.currentDate();
+                result += TimeAction.currentDate() + ".";
                 break;
             case "access_website":
                 if(!response.getResult().getParameters().isEmpty())
@@ -54,7 +64,7 @@ public class AI {
             default:
                 break;
         }
-        result += "\n";
+        result = (char) 27 + "[33mBubbleText >  " + (char) 27 + "[0m" + result;
         return result;
     }
 }

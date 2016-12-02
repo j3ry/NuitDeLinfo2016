@@ -17,13 +17,13 @@ public class Main {
         String msg = "";
         while(!msg.equals("exit")) {
 
-            System.out.print("Ask >\t");
+            System.out.print((char) 27 + "[35mAsk >  " + (char) 27 + "[0m");
 
             Scanner sc = new Scanner(System.in);
             msg = sc.nextLine();
             try {
                 if (!msg.isEmpty() && !msg.equals("exit"))
-                    System.out.print(ai.sendMessage(msg));
+                    System.out.println(ai.sendMessage(msg));
             } catch (AIServiceException e) {
                 e.printStackTrace();
             }
