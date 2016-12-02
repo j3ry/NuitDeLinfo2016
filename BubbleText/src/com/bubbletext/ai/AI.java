@@ -22,7 +22,7 @@ public class AI {
     }
 
     public String sendMessage(String msg) throws AIServiceException {
-        String result = "";
+        String result = "BubbleText >\t";
         AIResponse response = this.dataService.request(new AIRequest(msg));
 
         if (response.getStatus().getCode() == 200) {

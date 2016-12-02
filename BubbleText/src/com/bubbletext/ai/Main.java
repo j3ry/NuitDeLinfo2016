@@ -17,12 +17,12 @@ public class Main {
         String msg = "";
         while(!msg.equals("exit")) {
 
-            System.out.print(">");
+            System.out.print("Ask >\t");
 
             Scanner sc = new Scanner(System.in);
             msg = sc.nextLine();
             try {
-                if(!msg.isEmpty())
+                if (!msg.isEmpty() && !msg.equals("exit"))
                     System.out.print(ai.sendMessage(msg));
             } catch (AIServiceException e) {
                 e.printStackTrace();
