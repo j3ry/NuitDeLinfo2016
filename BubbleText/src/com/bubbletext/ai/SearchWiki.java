@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 
 /**
@@ -12,7 +13,14 @@ import java.nio.charset.Charset;
  */
 public class SearchWiki {
     public static void getWikiHead(String subject){
-        String rawUrl = "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="+subject;
+        String subjectEncoded = "";
+        try {
+            subjectEncoded = URLEncoder.encode(subject, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        String rawUrl = "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles="+subjectEncoded;
 
         JSONObject jsonObject = null;
         try {
@@ -28,6 +36,10 @@ public class SearchWiki {
             return;
 
         String extract = jsonObject2.getString("extract");
+        if(extract.isEmpty()) {
+            extract = " go to \"https://fr.wikipedia.org/wiki/" + subject+"\"";
+        }
+
         System.out.println(extract);
 
     }
